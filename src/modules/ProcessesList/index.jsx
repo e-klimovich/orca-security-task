@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { statusedProcessesSelector, processesLoadingSelector } from '../../store/selectors/processes';
+import { statusedProcessesSelector } from '../../store/selectors/processes';
 import processesSlice from '../../store/slices/processesSlice';
 
-import { ProcessCard, Button, Title, Select, Spiner } from '../../components';
+import { ProcessCard, Button, Title, Select } from '../../components';
 
 import { filterOptions, FILTER_TYPE } from './constants';
 import { sortByName, sortByDate } from './utils';
@@ -17,13 +17,8 @@ const ProcessesList = () => {
   const history = useHistory();
 
   const processes = useSelector(statusedProcessesSelector);
-  const isLoading = useSelector(processesLoadingSelector);
 
   const [filterValue, setFilterValue] = useState(FILTER_TYPE.name);
-
-  useEffect(() => {
-    dispatch(processesSlice.actions.fetch());
-  }, []);
 
   const handleAddProcessClick = () => {
     dispatch(processesSlice.actions.add());
@@ -61,7 +56,7 @@ const ProcessesList = () => {
   );
 
   return (
-    <Spiner isLoading={isLoading}>
+    <div>
       <Title>Processes</Title>
 
       <FilterWrapperStyled>
@@ -88,7 +83,7 @@ const ProcessesList = () => {
         ))}
       </div>
       <Button onClick={handleAddProcessClick}>Add Random Process</Button>
-    </Spiner>
+    </div>
   )
 }
 

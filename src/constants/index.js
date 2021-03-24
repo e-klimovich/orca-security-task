@@ -3,3 +3,5 @@ export const JOB_STATUS = {
   successed: 'successed',
   running: 'running',
 };
+
+export const POLLING_INTERVALS = 10000;

@@ -1,11 +1,10 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import processesSlice from '../../store/slices/processesSlice';
-import { statusedProcessesSelector, processesLoadingSelector } from '../../store/selectors/processes';
+import { statusedProcessesSelector } from '../../store/selectors/processes';
 
-import { JobCard, Title, Button, Input, Spiner } from '../../components';
+import { JobCard, Title, Button, Input } from '../../components';
 
 import { InputWrapperStyled } from './styles';
 
@@ -13,16 +12,10 @@ const ProcessesList = (props) => {
   const { processId } = props;
 
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const [searchValue, setSearchValue] = useState('');
 
   const processes = useSelector(statusedProcessesSelector);
-  const isLoading = useSelector(processesLoadingSelector);
-
-  useEffect(() => {
-    dispatch(processesSlice.actions.fetch());
-  }, []);
 
   const handleBackClick = () => {
     history.goBack();
@@ -39,7 +32,7 @@ const ProcessesList = (props) => {
   }, [processes, processId, searchValue]);
 
   return (
-    <Spiner isLoading={isLoading}>
+    <div>
       <div>
         <Button onClick={handleBackClick}>Back</Button>
       </div>
@@ -63,7 +56,7 @@ const ProcessesList = (props) => {
           />
         ))}
       </div>
-    </Spiner>
+    </div>
   )
 }
 

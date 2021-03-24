@@ -4,5 +4,4 @@ export { default as Input } from './Input';
 export { default as JobCard } from './JobCard';
 export { default as ProcessCard } from './ProcessCard';
 export { default as Select } from './Select';
-export { default as Spiner } from './Spiner';
 export { default as Title } from './Title';
