@@ -8,7 +8,7 @@ import {
   deleteProcessesRequest,
 } from '../../services/api/v1/processes';
 
-function* fetchProcesses() {
+export function* fetchProcesses() {
   try {
     const data = yield call(getProcessesRequest);
 
@@ -18,7 +18,7 @@ function* fetchProcesses() {
   }
 }
 
-function* addProcess() {
+export function* addProcess() {
   try {
     const data = yield call(addProcessesRequest);
 
@@ -28,7 +28,7 @@ function* addProcess() {
   }
 }
 
-function* removeProcess({ payload }) {
+export function* removeProcess({ payload }) {
   try {
     const data = yield call(deleteProcessesRequest, payload);
 

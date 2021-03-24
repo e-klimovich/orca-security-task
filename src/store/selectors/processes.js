@@ -8,9 +8,7 @@ export const processesSelector = (state) => state[processesSlice.name];
 export const processesItemsSelector = (state) => state[processesSlice.name].items;
 export const processesLoadingSelector = (state) => state[processesSlice.name].isLoading;
 
-export const calcProcessStatus = (jobs) => {
-  jobs.find((item) => item.status === JOB_STATUS.failed);
-
+const calcProcessStatus = (jobs) => {
   if (jobs.find((item) => item.status === JOB_STATUS.failed)) {
     return JOB_STATUS.failed;
   }
@@ -19,7 +17,7 @@ export const calcProcessStatus = (jobs) => {
     return JOB_STATUS.running;
   }
 
-  return JOB_STATUS.processes;
+  return JOB_STATUS.successed;
 }
 
 export const statusedProcessesSelector = createSelector(
