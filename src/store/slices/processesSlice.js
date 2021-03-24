@@ -12,50 +12,53 @@ export const processesSlice = createSlice({
   reducers: {
     // fetching processes
     fetch: (state, action) => ({
+      ...state,
       isLoading: true,
       isError: false,
-      ...state,
     }),
     fetchSuccess: (state, action) => ({
+      ...state,
       isLoading: false,
-      items: action.payload
+      items: action.payload,
     }),
     fetchFailure: (state, action) => ({
+      ...state,
       isLoading: false,
       isError: true,
-      ...state,
     }),
 
     // add new random process
     add: (state, action) => ({
+      ...state,
       isLoading: true,
       isError: false,
-      ...state,
     }),
     addSuccess: (state, action) => ({
+      ...state,
       isLoading: false,
-      items: action.payload
+      items: action.payload,
     }),
     addFailure: (state, action) => ({
+      ...state,
       isLoading: false,
       isError: true,
-      ...state,
     }),
 
     // remove process by id
     remove: (state, action) => ({
+      ...state,
       isLoading: true,
       isError: false,
-      ...state,
     }),
     removeSuccess: (state, action) => ({
+      ...state,
       isLoading: false,
-      items: action.payload
+      items: action.payload,
     }),
     removeFailure: (state, action) => ({
+      ...state,
       isLoading: false,
       isError: true,
-      ...state,
     }),
   },
 });

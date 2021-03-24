@@ -7,8 +7,8 @@ const JobCard = (props) => {
 
   return (
     <Card>
-      <div>{name}</div>
-      <div>{status}</div>
+      <div>Name: {name}</div>
+      <div>Status: {status}</div>
     </Card>
   )
 }

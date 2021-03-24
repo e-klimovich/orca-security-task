@@ -2,10 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { statusedProcessesSelector } from '../../store/selectors/processes';
+import { statusedProcessesSelector, processesLoadingSelector } from '../../store/selectors/processes';
 import processesSlice from '../../store/slices/processesSlice';
 
-import { ProcessCard, Button, Title, Select } from '../../components';
+import { ProcessCard, Button, Title, Select, Spiner } from '../../components';
 
 import { filterOptions, FILTER_TYPE } from './constants';
 import { sortByName, sortByDate } from './utils';
@@ -17,6 +17,7 @@ const ProcessesList = () => {
   const history = useHistory();
 
   const processes = useSelector(statusedProcessesSelector);
+  const isLoading = useSelector(processesLoadingSelector);
 
   const [filterValue, setFilterValue] = useState(FILTER_TYPE.name);
 
@@ -60,7 +61,7 @@ const ProcessesList = () => {
   );
 
   return (
-    <div>
+    <Spiner isLoading={isLoading}>
       <Title>Processes</Title>
 
       <FilterWrapperStyled>
@@ -87,7 +88,7 @@ const ProcessesList = () => {
         ))}
       </div>
       <Button onClick={handleAddProcessClick}>Add Random Process</Button>
-    </div>
+    </Spiner>
   )
 }
 

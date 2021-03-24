@@ -4,7 +4,9 @@ import { JOB_STATUS } from '../../constants';
 
 import processesSlice from '../slices/processesSlice';
 
-export const processesSelector = (state) => state[processesSlice.name].items;
+export const processesSelector = (state) => state[processesSlice.name];
+export const processesItemsSelector = (state) => state[processesSlice.name].items;
+export const processesLoadingSelector = (state) => state[processesSlice.name].isLoading;
 
 export const calcProcessStatus = (jobs) => {
   jobs.find((item) => item.status === JOB_STATUS.failed);
@@ -21,7 +23,7 @@ export const calcProcessStatus = (jobs) => {
 }
 
 export const statusedProcessesSelector = createSelector(
-  processesSelector,
+  processesItemsSelector,
   (processes) => processes.map((item) => ({
     ...item,
     status: calcProcessStatus(item.jobs),
