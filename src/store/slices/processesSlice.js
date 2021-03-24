@@ -7,8 +7,16 @@ export const processesSlice = createSlice({
   initialState,
   reducers: {
     fetch: (state, action) => state,
-    fetchSuccess: (state, action) => state,
+    fetchSuccess: (state, action) => action.payload,
     fetchFailure: (state, action) => state,
+
+    add: (state, action) => state,
+    addSuccess: (state, action) => action.payload,
+    addFailure: (state, action) => state,
+
+    remove: (state, action) => state,
+    removeSuccess: (state, action) => action.payload,
+    removeFailure: (state, action) => state,
   },
 });
 

@@ -7,3 +7,15 @@ export const getProcessesRequest = async () => {
 
   return res;
 };
+
+export const addProcessesRequest = async () => {
+  const res = await fetch(MOCKED_API_PATHS.processes, { method: 'POST' });
+
+  return res;
+};
+
+export const deleteProcessesRequest = async (id) => {
+  const res = await fetch(MOCKED_API_PATHS.processes, { method: 'DELETE', body: { id } });
+
+  return res;
+};

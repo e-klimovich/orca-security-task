@@ -1,24 +1,24 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 
-import { processesSelector } from './store/selectors/processes';
-import processesSlice from './store/slices/processesSlice';
+// import { processesSelector } from './store/selectors/processes';
+// import processesSlice from './store/slices/processesSlice';
 
-import { Button } from './components';
+import ProcessesList from './modules/ProcessesList';
 
 const App = () => {
-  const dispatch = useDispatch();
-  const processes = useSelector(processesSelector);
+  // const dispatch = useDispatch();
+  // const processes = useSelector(processesSelector);
 
-  console.log({ processes });
+  // console.log({ processes });
 
-  const handleButtonClick = () => {
-    dispatch(processesSlice.actions.fetch());
-  };
+  // const handleButtonClick = () => {
+  //   dispatch(processesSlice.actions.fetch());
+  // };
 
   return (
     <div>
-      <Button onClick={handleButtonClick}>Button</Button>
+      <ProcessesList />
     </div>
   )
 }
