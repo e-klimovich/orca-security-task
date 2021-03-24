@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import { statusedProcessesSelector } from '../store/selectors/processes';
-import processesSlice from '../store/slices/processesSlice';
+import { statusedProcessesSelector } from '../../store/selectors/processes';
+import processesSlice from '../../store/slices/processesSlice';
 
-import { ProcessCard, Button, Title, Select } from '../components';
+import { ProcessCard, Button, Title, Select } from '../../components';
 
 import { filterOptions, FILTER_TYPE } from './constants';
 import { sortByName, sortByDate } from './utils';
@@ -13,6 +14,8 @@ import { FilterWrapperStyled } from './styles';
 
 const ProcessesList = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const processes = useSelector(statusedProcessesSelector);
 
   const [filterValue, setFilterValue] = useState(FILTER_TYPE.name);
@@ -25,8 +28,8 @@ const ProcessesList = () => {
     dispatch(processesSlice.actions.add());
   };
 
-  const handleShowJobsClick = () => {
-    alert('show job');
+  const handleShowJobsClick = (id) => {
+    history.push(`/${id}`);
   };
 
   const handleProcessRemove = (id) => {

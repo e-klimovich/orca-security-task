@@ -16,7 +16,11 @@ const ProcessCard = (props) => {
 
   const handleRemoveClick = () => {
     onRemoveClick(id);
-  }
+  };
+
+  const handleShowJobsClick = () => {
+    onShowJobsClick(id);
+  };
 
   return (
     <Card>
@@ -24,7 +28,7 @@ const ProcessCard = (props) => {
       <div>Date: {new Date(startTime).toDateString()}</div>
       <div>Jobs Count: {jobsCount}</div>
       <div>Status: {status}</div>
-      <Button onClick={onShowJobsClick}>Show Jobs</Button>
+      <Button onClick={handleShowJobsClick}>Show Jobs</Button>
       <Button onClick={handleRemoveClick}>Remove Process</Button>
     </Card>
   )

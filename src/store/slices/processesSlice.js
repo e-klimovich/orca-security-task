@@ -1,22 +1,62 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = [];
+const initialState = {
+  isLoading: false,
+  isError: false,
+  items: [],
+};
 
 export const processesSlice = createSlice({
   name: 'processes',
   initialState,
   reducers: {
-    fetch: (state, action) => state,
-    fetchSuccess: (state, action) => action.payload,
-    fetchFailure: (state, action) => state,
+    // fetching processes
+    fetch: (state, action) => ({
+      isLoading: true,
+      isError: false,
+      ...state,
+    }),
+    fetchSuccess: (state, action) => ({
+      isLoading: false,
+      items: action.payload
+    }),
+    fetchFailure: (state, action) => ({
+      isLoading: false,
+      isError: true,
+      ...state,
+    }),
 
-    add: (state, action) => state,
-    addSuccess: (state, action) => action.payload,
-    addFailure: (state, action) => state,
+    // add new random process
+    add: (state, action) => ({
+      isLoading: true,
+      isError: false,
+      ...state,
+    }),
+    addSuccess: (state, action) => ({
+      isLoading: false,
+      items: action.payload
+    }),
+    addFailure: (state, action) => ({
+      isLoading: false,
+      isError: true,
+      ...state,
+    }),
 
-    remove: (state, action) => state,
-    removeSuccess: (state, action) => action.payload,
-    removeFailure: (state, action) => state,
+    // remove process by id
+    remove: (state, action) => ({
+      isLoading: true,
+      isError: false,
+      ...state,
+    }),
+    removeSuccess: (state, action) => ({
+      isLoading: false,
+      items: action.payload
+    }),
+    removeFailure: (state, action) => ({
+      isLoading: false,
+      isError: true,
+      ...state,
+    }),
   },
 });
 
