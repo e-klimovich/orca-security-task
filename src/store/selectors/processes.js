@@ -24,6 +24,6 @@ export const statusedProcessesSelector = createSelector(
   processesItemsSelector,
   (processes) => processes.map((item) => ({
     ...item,
-    status: calcProcessStatus(item.jobs),
+    status: item.jobs ? calcProcessStatus(item.jobs) : '',
   }))
 );
