@@ -4,4 +4,4 @@ export const JOB_STATUS = {
   successed: 'successed',
 };
 
-export const POLLING_INTERVALS = 10000;
+export const POLLING_INTERVALS = 1000 * 60 * 10; // 10 min

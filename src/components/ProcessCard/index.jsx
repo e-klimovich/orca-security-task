@@ -29,7 +29,7 @@ const ProcessCard = (props) => {
       <div>Jobs Count: {jobsCount}</div>
       <div>Status: {status}</div>
       <Button onClick={handleShowJobsClick}>Show Jobs</Button>
-      <Button onClick={handleRemoveClick}>Remove Process</Button>
+      <Button onClick={handleRemoveClick} color="red">Remove Process</Button>
     </Card>
   )
 }

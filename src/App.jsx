@@ -5,8 +5,9 @@ import { processesLoadingSelector } from './store/selectors/processes';
 import processesSlice from './store/slices/processesSlice';
 
 import RootRouter from './router';
-
 import { POLLING_INTERVALS } from './constants';
+
+import './theme/base.css';
 
 const App = () => {
   const dispatch = useDispatch();

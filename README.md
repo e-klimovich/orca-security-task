@@ -6,6 +6,7 @@ First of all `node v14.13.0` should be insalled
 
 1. `yarn` to install dependecies
 2. `yarn start` to run development mode
+3. `yarn test` to run tests
 
 ## Task description
 

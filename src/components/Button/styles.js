@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
   border: none;
-  background: #45ad8c;
+  background: ${props => props.theme.colors[props.color]};
   color: white;
   cursor: pointer;
   height: 36px;
